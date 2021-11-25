@@ -94,6 +94,12 @@ public class UserRegistrationTest {
 	        boolean result = userRegistration.passwordRule3("123456789");
 	        Assert.assertEquals(false, result);
 	    }
+	    @Test
+	    public void givenPasswordRule4_WhenProper_ShouldReturnTrue() {
+	        boolean result = userRegistration.passwordRule4("@123@Abc");
+	        Assert.assertEquals(true, result);
+	    }
+	    
 	    public void givenPasswordRule4_WhenNotProper_ShouldReturnFalse() {
 	        boolean result = userRegistration.passwordRule4("@@@@@@@@@A");
 	        Assert.assertEquals(false, result);
@@ -123,5 +129,15 @@ public class UserRegistrationTest {
 	        Assert.assertEquals(false, result);
 	    
 	    }
+	    @Test
+	    public void givenMessage_WhenHappy_ShouldReturnEntrySuccessful() {
+	        String result = MoodAnalyser.analyseMood("User is Happy");
+	        Assert.assertEquals("Entry Successful", result);
+	    }
+	    @Test
+	    public void givenEmail2_WhenNotProper_ShouldReturnEntryFailed() {
+	        String result = MoodAnalyser.analyseMood("User is Sad");
+	        Assert.assertEquals("Entry Failed", result);
+	    }
 	    
-}
+	 }
